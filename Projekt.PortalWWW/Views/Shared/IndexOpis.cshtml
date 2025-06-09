@@ -1,0 +1,22 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentString>
+@using FirmaData.Data.CMS
+@{
+    var kont = ViewBag.ModelTitleOpis as ContentString;
+    var butt = ViewBag.ModelButton as ContentString;
+}
+<div class="text-center mb-5 col-md-6 col-lg-5 col-xl-4 p-2">
+    @if (kont != null)
+    {
+        <h2 class="m-4">@kont.Value</h2>
+    }
+    @foreach (var item in Model)
+    {
+        <p>
+            @item.Value
+        </p>
+    }
+    @if (butt != null)
+    {
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Kontakt"><button class="btn btn-dark w-100">@butt.Value</button></a>
+    }
+</div>

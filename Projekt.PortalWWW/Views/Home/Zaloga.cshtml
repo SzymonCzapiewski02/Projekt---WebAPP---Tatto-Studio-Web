@@ -1,0 +1,9 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.Galeria>
+@{
+    ViewData["Title"] = "Zaloga";
+}
+
+<div class="d-flex flex-column align-items-center justify-content-center text-center px-3">
+    @await Html.PartialAsync("Galeria",
+            (IEnumerable<FirmaData.Data.CMS.Galeria>)ViewBag.ModelGaleria)
+</div>

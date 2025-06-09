@@ -1,0 +1,13 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.Strona>
+
+<ul class="nav nav-pills flex-column mb-auto">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="@item.LinkTytul" asp-route-id="@item.IdStrony">
+                <i class="@item.Icon"></i> @item.LinkTytul
+            </a>
+        </li>
+    }
+</ul>
+

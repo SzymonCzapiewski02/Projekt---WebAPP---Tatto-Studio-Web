@@ -1,0 +1,61 @@
+﻿@model FirmaData.Data.CMS.Strona
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="d-flex justify-content-center align-items-center flex-column">
+    <h2 class="mt-4">Tworzenie Strony</h2>
+    <div class="col-md-6">
+        <form asp-action="Create" class="needs-validation text-white">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="LinkTytul" class="form-label col-form-label-lg text-dark">Link Tytuł</label>
+                <input asp-for="LinkTytul" class="form-control form-control-lg border-light btn-dark" />
+                <span asp-validation-for="LinkTytul" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Tytul" class="form-label col-form-label-lg text-dark">Tytuł</label>
+                <input asp-for="Tytul" class="form-control form-control-lg border-light btn-dark" />
+                <span asp-validation-for="Tytul" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PodTytul" class="form-label col-form-label-lg text-dark">Podtytuł</label>
+                <input asp-for="PodTytul" class="form-control form-control-lg border-light btn-dark" />
+                <span asp-validation-for="PodTytul" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FotoURL" class="form-label col-form-label-lg text-dark">URL Zdjęcia</label>
+                <input asp-for="FotoURL" id="formFileLg" type="file" class="form-control form-control-lg border-light bg-dark text-white" />
+                <span asp-validation-for="FotoURL" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Pozycja" class="form-label col-form-label-lg text-dark">Pozycja</label>
+                <input asp-for="Pozycja" class="form-control form-control-lg border-light btn-dark" />
+                <span asp-validation-for="Pozycja" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Icon" class="form-label col-form-label-lg text-dark">Ikona</label>
+                <input asp-for="Icon" class="form-control form-control-lg border-light btn-dark" />
+                <span asp-validation-for="Icon" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+                <a asp-action="Index" class="btn btn-dark btn-lg border btn-outline-light">Powrót do listy</a>
+                <input type="submit" value="Utwórz" class="btn btn-dark border-dark btn-lg btn-outline-light" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

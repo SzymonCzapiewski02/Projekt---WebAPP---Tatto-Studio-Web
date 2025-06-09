@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.Tatto>
+<div class="d-flex flex-column">
+    @using FirmaData.Data.CMS
+    @{
+        var kont = ViewBag.ModelTitle as ContentString;
+    }
+
+    @if (kont != null)
+    {
+        <h2 class="m-4">@kont.Value</h2>
+    }
+    <div class="d-flex flex-wrap justify-content-start">
+        @foreach (var item in Model)
+        {
+            <div class="card border-0" style="width: 18rem; margin: 1rem;">
+                <img src="foto/@item.FotoURL" class="card-img-top img-fluid" alt="..." style="height: 200px; object-fit: cover;">
+                <div class="card bg-dark text-white rounded shadow h-100">
+                    <h5 class="card-title mb-2">
+                        <strong>@item.Klient.Imie @item.Klient.Nazwisko</strong>
+                    </h5>
+                    <h6 class="card-subtitle mb-3 text-muted text-white-50">
+                        @item.TattoArtists.Imie "<em>@item.TattoArtists.Przydomek</em>" @item.TattoArtists.Nazwisko
+                    </h6>
+                    <p class="card-subtitle mb-3 text-muted text-white-50">
+                        @item.Styl
+                    </p>
+                    <p class="card-text mt-auto"><small class="text-white-50">@item.Cena</small></p>
+                    <p class="card-text mt-auto"><small class="text-white-50">@item.Data</small></p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

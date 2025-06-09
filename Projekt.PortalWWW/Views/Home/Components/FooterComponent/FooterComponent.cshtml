@@ -1,0 +1,6 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentString>
+
+@foreach (var item in Model)
+{
+    <a class="nav-link text-white p-0" asp-area="" asp-controller="Home" asp-action="Index">@item.Value</a>
+}

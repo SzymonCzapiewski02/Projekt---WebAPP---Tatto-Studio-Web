@@ -1,0 +1,16 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.Tatto>
+@{
+    ViewData["Title"] = "Strona Głowna";
+}
+
+<div class="d-flex flex-column align-items-center justify-content-center text-center px-3">
+    @await Html.PartialAsync("IndexOpis",
+            (IEnumerable<FirmaData.Data.CMS.ContentString>)ViewBag.ModelDane)
+    <div class="d-flex justify-content-center gap-4 flex-wrap">
+        @await Html.PartialAsync("Tatto",
+                 (IEnumerable<FirmaData.Data.CMS.Tatto>)ViewBag.ModelTatto)
+    </div>
+</div>
+
+
+

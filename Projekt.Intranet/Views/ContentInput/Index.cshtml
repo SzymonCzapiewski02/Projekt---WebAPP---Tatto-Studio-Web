@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentInput>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="table-responsive m-4 col-sm-4 col-lg-12 d-flex justify-content-center">
+    <div class="w-75 d-flex flex-column align-items-center">
+        <div class="row w-100 mb-3 align-items-center">
+            <div class="col text-center">
+                <h3 class="mb-0 h2">Content Input</h3>
+            </div>
+            <div class="col-auto ms-auto">
+                <a asp-action="Create" class="btn btn-lg btn-dark border-dark btn-outline-light">Dodaj nową</a>
+            </div>
+        </div>
+
+        <table id="datatable" class="table table-lg rounded table-hover table-dark text-md-center">
+            <thead>
+                <tr class="h4">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Key)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Input)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Value)
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th><input type="text" placeholder="Szukaj klucz" class="form-control form-control-sm" /></th>
+                    <th><input type="text" placeholder="Szukaj input" class="form-control form-control-sm" /></th>
+                    <th><input type="text" placeholder="Szukaj wartosc" class="form-control form-control-sm" /></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="h5">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Key)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Input)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Value)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" class="btn btn-md btn-light border-light btn-outline-dark" asp-route-id="@item.IdContentInput">Edit</a> |
+                            <a asp-action="Delete" class="btn btn-md btn-light border-light btn-outline-dark" asp-route-id="@item.IdContentInput">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

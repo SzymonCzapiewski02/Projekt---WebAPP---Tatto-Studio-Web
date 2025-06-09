@@ -1,0 +1,11 @@
+﻿@model IEnumerable<FirmaData.Data.Sklep.Recenzja>
+@{
+    ViewData["Title"] = "O Nas";
+}
+
+<div class="d-flex flex-column align-items-center justify-content-center text-center px-3">
+    @await Html.PartialAsync("AccorderONas",
+            (IEnumerable<FirmaData.Data.CMS.ContentString>)ViewBag.ModelAcc)
+    @await Html.PartialAsync("Recenzje",
+            (IEnumerable<FirmaData.Data.Sklep.Recenzja>)ViewBag.ModelRecenzje)
+</div>

@@ -1,0 +1,29 @@
+﻿@model FirmaData.Data.CMS.ContentString
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="d-flex justify-content-center align-items-center flex-column">
+    <h2 class="mt-4">Dodawanie</h2>
+    <div class="col-md-6">
+        <form asp-action="Create" class="needs-validation text-white" novalidate>
+            <div class="form-group">
+                <label asp-for="Key" class="form-label col-form-label-lg text-dark"></label>
+                <input asp-for="Key" class="form-control form-control-lg border-light btn-dark" />
+                <span asp-validation-for="Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Value" class="form-label col-form-label-lg text-dark"></label>
+                <input asp-for="Value" class="form-control form-control-lg border-light btn-dark" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+                <a asp-action="Index" class="btn btn-dark btn-lg border btn-outline-light">Powrót do listy</a>
+                <input type="submit" value="Utwórz" class="btn btn-dark border-dark btn-lg btn-outline-light" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

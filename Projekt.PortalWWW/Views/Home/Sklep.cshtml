@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FirmaData.Data.Sklep.Produkt>
+@{
+    ViewData["Title"] = "Sklep";
+}
+
+<div class="d-flex justify-content-center align-content-center min-vh-100">
+    <div class="container py-5">
+        <div class="row g-4">
+            @await Html.PartialAsync("Produkty",
+                     (IEnumerable<FirmaData.Data.Sklep.Produkt>)ViewBag.ModelSklep)
+        </div>
+    </div>
+</div>
+
+

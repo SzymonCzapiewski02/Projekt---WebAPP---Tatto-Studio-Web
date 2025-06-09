@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FirmaData.Data.Sklep.Recenzja>
+<div class="container mt-5">
+    @using FirmaData.Data.CMS
+    @{
+        var kont = ViewBag.ModelTitle as ContentString;
+    }
+
+    @if (kont != null)
+    {
+        <h3>@kont.Value</h3>
+    }
+    <div class="row">
+        @foreach (var recenzja in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card bg-dark text-white rounded shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title mb-2">
+                            <strong>@recenzja.Klient.Imie @recenzja.Klient.Nazwisko</strong>
+                        </h5>
+                        <h6 class="card-subtitle mb-3 text-muted text-white-50">
+                            @recenzja.TattoArtists.Imie "<em>@recenzja.TattoArtists.Przydomek</em>" @recenzja.TattoArtists.Nazwisko
+                        </h6>
+                        <p class="card-text">@recenzja.Komentarz</p>
+                        <p class="card-text mt-auto"><small class="text-white-50">@recenzja.Data</small></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

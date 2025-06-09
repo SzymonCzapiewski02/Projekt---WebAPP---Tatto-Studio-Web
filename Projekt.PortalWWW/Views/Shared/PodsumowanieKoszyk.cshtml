@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentString>
+@using FirmaData.Data.CMS
+@using FirmaData.Data.Sklep
+
+@{
+    var kont = ViewBag.ModelTitlePods as ContentString;
+    var butt = ViewBag.ModelButtonPods as ContentString;
+    var cena = ViewBag.ModelCena as decimal?;
+}
+<div class="row justify-content-end">
+    <div class="col-md-5 bg-light p-4 rounded">
+        <h5 class="mb-3">
+            @if(kont != null)
+            {
+                @kont.Value;
+            }
+        </h5>
+        @foreach(var item in Model)
+        {
+            <div class="d-flex justify-content-between mb-2">
+                <span>@item.Value</span>
+                <span>@(cena?.ToString("C"))</span>
+            </div>
+            <hr />
+        }
+        @if (butt != null)
+        {
+            <button class="btn btn-dark w-100">@butt.Value</button>
+        }
+    </div>
+</div>

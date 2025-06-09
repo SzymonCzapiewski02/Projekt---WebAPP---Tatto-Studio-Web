@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FirmaData.Data.Sklep.Produkt>
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+        <a class="text-decoration-none text-black" asp-action="Produkt" asp-route-id="@item.IdProdukt">
+            <div class="card border-0 shadow-lg">
+                <img src="~/Foto/@item.FotoUrl" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <p class="card-text">@item.Nazwa</p>
+                    <h3><i>@item.Cena zł</i></h3>
+                </div>
+            </div>
+        </a>
+    </div>
+}

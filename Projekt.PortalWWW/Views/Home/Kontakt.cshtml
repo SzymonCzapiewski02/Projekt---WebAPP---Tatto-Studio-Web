@@ -1,0 +1,22 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentInput>
+@{
+    ViewData["Title"] = "Kontakt";
+}
+<div class="d-flex justify-content-center gap-4 flex-wrap p-4 mb-4">
+    <div class="card border-0" style="width: 42rem;">
+        @await Html.PartialAsync("AdresKontakt",
+                 (IEnumerable<FirmaData.Data.CMS.ContentString>)ViewBag.ModelAdres)
+    </div>
+    <div class="card border-0" style="width: 42rem;">
+        <div class="card-body">
+            @await Html.PartialAsync("DaneKontakt",
+                     (IEnumerable<FirmaData.Data.CMS.ContentString>)ViewBag.ModelDane)
+        </div>
+    </div>
+</div>
+<div class="form-container mx-auto">
+    <form>
+        @await Html.PartialAsync("KontaktForm",
+                 (IEnumerable<FirmaData.Data.CMS.ContentInput>)ViewBag.ModelKontakt)
+    </form>
+</div>

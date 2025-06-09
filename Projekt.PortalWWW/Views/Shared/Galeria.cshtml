@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.Galeria>
+@using FirmaData.Data.CMS
+@{
+    var butt = ViewBag.ModelButton as ContentInput;
+}
+@if (butt != null)
+{
+    <div class="col-md-6 col-lg-5 col-xl-4 p-2">
+        <input class="form-control form-select-lg border-light btn-dark" type="search" placeholder="@butt.Value" aria-label="Search">
+    </div>
+}
+<div class="container py-5">
+    <div class="d-flex flex-column tattoo-layout gap-5">
+        @foreach (var group in Model.GroupBy(g => g.TattoArtists))
+        {
+            <div class="d-flex">
+                <div class="w-75">
+                    <div class="tattoo-grid">
+                        @foreach (var photo in group)
+                        {
+                            <img src="~/Foto/@photo.UrlZdjecia" alt="Tatuaż" class="tattoo-img" />
+                        }
+                    </div>
+                </div>
+                <div class="w-50 p-5">
+                    <h2 class="text-start">@group.Key.Imie "@group.Key.Przydomek" @group.Key.Nazwisko</h2>
+                    <p class="text-start">
+                        @group.Key.Opis
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

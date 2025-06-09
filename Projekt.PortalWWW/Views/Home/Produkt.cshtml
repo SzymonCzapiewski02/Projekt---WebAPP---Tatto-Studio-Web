@@ -1,0 +1,33 @@
+﻿@model FirmaData.Data.Sklep.Produkt
+@using FirmaData.Data.CMS
+@{
+    ViewData["Title"] = "Produkt";
+    var butt = ViewBag.ModelButton as ContentString;
+}
+<div class="d-flex flex-column align-items-center justify-content-center text-center px-3">
+    <div class="container py-5 d-flex flex-column flex-lg-row">
+        <div class="flex-shrink-0 w-sm-100 w-lg-50 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img src="/Foto/@Model.FotoUrl" class="img-fluid mb-3" style="width: 650px;">
+                    <div class="d-flex justify-content-center gap-2">
+                        <img src="/Foto/@Model.FotoUrl" class="img-thumbnail" style="width: 80px;">
+                        <img src="/Foto/@Model.FotoUrl" class="img-thumbnail" style="width: 80px;">
+                        <img src="/Foto/@Model.FotoUrl" class="img-thumbnail" style="width: 80px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 w-lg-50 p-4">
+            <h3 class="text-start mb-3">@Model.Nazwa</h3>
+            <h1 class="text-start mb-3">@Model.Cena</h1>
+            @if (butt != null)
+            {
+                <button class="btn btn-dark w-100 mb-4">@butt.Value</button>
+            }
+            <p class="text-start fs-5 mb-2">
+                @Model.Opis
+            </p>
+        </div>
+    </div>
+</div>

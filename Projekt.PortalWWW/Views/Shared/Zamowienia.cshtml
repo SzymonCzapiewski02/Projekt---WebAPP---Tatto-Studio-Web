@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FirmaData.Data.Sklep.Zamowienia>
+@using FirmaData.Data.CMS
+
+@{
+    var buttonList = ViewBag.ModelButton as List<ContentString>;
+    var buttonPlus = buttonList?.FirstOrDefault(c => c.Key == "KoszykButtonPlus")?.Value ?? "+";
+    var buttonMinus = buttonList?.FirstOrDefault(c => c.Key == "KoszykButtonMinus")?.Value ?? "-";
+    var buttonRemove = ViewBag.ModelButtonRemove as ContentString;
+    var kont = ViewBag.ModelTitle as ContentString;
+}
+@if (kont != null){
+    <h2 class="mb-4">Twój koszyk</h2>
+}
+@foreach (var item in Model)
+{
+    <div class="row align-items-center border-bottom pb-3 mb-3">
+        <div class="col-auto">
+            @if (buttonRemove != null)
+            {
+                <button type="button" class="btn-close" aria-label="@buttonRemove.Value"></button>
+            }
+        </div>
+        <div class="col-2">
+            <img src="~/Foto/@item.Produkt.FotoUrl" class="img-thumbnail" alt="@item.Produkt.Nazwa" style="width: 80px; height: auto;">
+        </div>
+        <div class="col-2">
+            @item.Produkt.Nazwa
+        </div>
+        <div class="col">
+            @item.Produkt.Cena zł
+        </div>
+        <div class="col-auto d-flex align-items-center">
+            <button class="btn btn-outline-secondary btn-sm me-2">@buttonMinus</button>
+            <span class="p-2">@item.Produkt.IloscMagazynowa</span>
+            <button class="btn btn-outline-secondary btn-sm me-2">@buttonPlus</button>
+        </div>
+        <div class="col-2">
+            <strong>@item.Produkt.Cena zł</strong>
+        </div>
+    </div>
+}

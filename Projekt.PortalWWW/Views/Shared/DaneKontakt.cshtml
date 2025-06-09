@@ -1,0 +1,17 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentString>
+@using FirmaData.Data.CMS
+@{
+    var img = ViewBag.ModelImageZ as ContentImage;
+}
+
+@if (img != null)
+{
+    <img src="~/Foto/@img.Image" class="card-img-top w-" alt="...">
+}
+
+<div class="card-body">
+    @foreach (var item in Model)
+    {
+        <h5>@item.Value</h5>
+    }
+</div>

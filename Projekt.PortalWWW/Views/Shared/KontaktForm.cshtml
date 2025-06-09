@@ -1,0 +1,26 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentInput>
+@using FirmaData.Data.CMS
+@{
+    var kont = ViewBag.ModelTitle as ContentString;
+}
+
+@if (kont != null)
+{
+    <h3>@kont.Value</h3>
+}
+@foreach (var item in Model)
+{
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label col-form-label-lg">@item.Value</label>
+        <input type="@item.Input" class="form-control form-select-lg border-light btn-dark" id="exampleFormControlInput1" placeholder="@item.Value">
+    </div>
+}
+@{
+    var kon = ViewBag.ModelButton as ContentString;
+}
+
+@if (kon != null)
+{
+    <button type="button" class="btn btn-lg btn-dark">@kon.Value</button>
+}
+

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentString>
+@using FirmaData.Data.CMS
+
+@{
+    var kont = ViewBag.ModelTitleAcc as ContentString;
+    var list = ViewBag.ModelAcc as List<ContentString>;
+    var pytania = list?.Where(c => c.Key == "ONasTitleAcc").ToList();
+    var odpowiedzi = list?.Where(c => c.Key == "ONasPytania").ToList(); 
+    int count = Math.Min(pytania?.Count ?? 0, odpowiedzi?.Count ?? 0);
+}
+
+@if (kont != null)
+{
+    <div class="text-center mb-5">
+        <h4 class="m-4 text-black-50"><i>@kont.Value</i></h4>
+        <h1 class="m-4">@kont.Value</h1>
+    </div>
+}
+
+@if (count > 0)
+{
+    <div class="accordion" id="accordionExample">
+        @for (int i = 0; i < count; i++)
+        {
+            var question = pytania[i];
+            var answer = odpowiedzi[i];
+            var collapseId = $"collapse{i}";
+            var headingId = $"heading{i}";
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="@headingId">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@collapseId" aria-expanded="false" aria-controls="@collapseId">
+                        @question.Value
+                    </button>
+                </h2>
+                <div id="@collapseId" class="accordion-collapse collapse" aria-labelledby="@headingId" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        @answer.Value
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<FirmaData.Data.CMS.ContentString>
+@using FirmaData.Data.CMS
+<div class="d-flex justify-content-end">
+    @foreach (var item in Model)
+    {
+        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
+            <i class="@item.Value"></i>
+        </a>
+    }
+    @{
+        var kont = ViewBag.ModelMenu as ContentString;
+    }
+
+    @if (kont != null)
+    {
+        <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
+            <i class="@kont.Value"></i>
+        </button>
+    }
+</div>
